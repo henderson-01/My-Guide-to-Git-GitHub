@@ -146,5 +146,10 @@ alias gsave='git add . && git commit -m "update" && git push'
 **Now, you can just type `gsave` to stage, commit, and push everything at once!**
 
 ---
+---
+
+## Disclaimer
+
+This project is provided "as-is" without any warranty of any kind. I am not responsible for any issues, data loss, or "explosions" (code-related or otherwise) that may occur from using this software. **Use it at your own risk.**
 
 
