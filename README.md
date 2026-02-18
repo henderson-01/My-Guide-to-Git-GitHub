@@ -14,6 +14,7 @@ git --version
 
 
 *If it shows a version number, you're good! If not, run: `sudo apt update && sudo apt install git -y`
+
 2. **Hide your Email on GitHub:** * Go to **Settings** → **Emails**.
 * Check **"Keep my email addresses private"** and **"Block command line pushes that expose my email."**
 
@@ -145,7 +146,6 @@ alias gsave='git add . && git commit -m "update" && git push'
 
 **Now, you can just type `gsave` to stage, commit, and push everything at once!**
 
----
 ---
 
 ## Disclaimer
