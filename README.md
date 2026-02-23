@@ -7,17 +7,16 @@ This guide ensures you can use Git on your Ubuntu desktop without password promp
 Before we start, let's make sure your computer is ready and your email is hidden.
 
 1. **Check if Git is installed:** Open your terminal (**Ctrl+Alt+T**) and type:
-```bash
-git --version
 
+```bash 
+git --version 
 ```
 
-
-*If it shows a version number, you're good! If not, run: `sudo apt update && sudo apt install git -y`
+If it shows a version number, you're good! If not, run: `sudo apt update && sudo apt install git -y`
 
 2. **Hide your Email on GitHub:** * Go to **Settings** → **Emails**.
-* Check **"Keep my email addresses private"** and **"Block command line pushes that expose my email."**
 
+* Check **"Keep my email addresses private"** and **"Block command line pushes that expose my email."**
 
 3. **Copy your "Noreply" Email:** GitHub will show a specific address in that menu, like `12345678+username@users.noreply.github.com`. **Save this for Step 2.**
 
@@ -46,29 +45,26 @@ git config --global init.defaultBranch main
 This lets Ubuntu talk to GitHub securely without you typing a password every time.
 
 1. **Generate the key:**
+
 ```bash
 ssh-keygen -t ed25519 -C "your-noreply-email@users.noreply.github.com"
-
 ```
 
-
-2. **The "Enter" Trick:** When it asks for a file location or passphrase, **press ENTER for all three prompts** (leave them blank).
+2. **The "Enter" Trick:** When it asks for a file location or passphrase, **press ENTER for all three prompts** 
+(leave them blank).
 3. **Copy the key to your clipboard:**
+
 ```bash
 cat ~/.ssh/id_ed25519.pub
-
 ```
-
 
 *Highlight the output starting with `ssh-ed25519` and copy it.*
 4. **Add to GitHub:** Go to **Settings** → **SSH and GPG keys** → **New SSH Key**. Give it a title (e.g., "Ubuntu Desktop") and paste the key.
 5. **The Critical Test:**
+
 ```bash
 ssh -T git@github.com
-
 ```
-
-
 
 > [!IMPORTANT]
 > When you run the test above for the first time, the terminal will ask:
@@ -91,41 +87,87 @@ The commands you’ll use in your project folder every day:
 
 ---
 
+## 📑 Quick Reference Cheatsheet
+
+> 💡 **How to read this:** When you see `<text>` (like `<branch-name>`), do **not** type the brackets. Replace the whole thing with your actual name (e.g., `git checkout main`).
+
+### 🏗️ Getting Started & Remotes
+
+| Command | Description |
+| --- | --- |
+| `git init` | Initialize a new local repository |
+| `git clone <url>` | Clone an existing repository |
+| `git remote -v` | List all connected remote repositories |
+| `git fetch` | Download changes from remote (without merging) |
+
+### 🌿 Branching
+
+| Command | Description |
+| --- | --- |
+| `git branch` | List all local branches |
+| `git checkout <name>` | Switch to a specific branch |
+| `git merge <name>` | Merge a branch into your current one |
+| `git branch -d <name>` | Delete a local branch |
+
+### 📜 History & Inspection
+
+| Command | Description |
+| --- | --- |
+| `git log` | View commit history |
+| `git log --oneline` | View compact, one-line history |
+| `git diff` | Show changes between commits/files |
+| `git blame <file>` | See who changed what in a specific file |
+
+### ↩️ Undo & Stashing
+
+| Command | Description |
+| --- | --- |
+| `git restore <file>` | Discard changes in your working directory |
+| `git reset HEAD~1` | Undo the last commit (keep changes local) |
+| `git revert <commit>` | Create a new commit that inverts a previous one |
+| `git stash` | Temporarily save changes for later use |
+
+### 🎓 Advanced
+
+| Command | Description |
+| --- | --- |
+| `git rebase` | Reapply commits on top of another base tip |
+| `git cherry-pick <id>` | Apply a specific commit from another branch |
+| `git tag v1.0` | Create a version tag |
+| `git bisect` | Use binary search to find which commit introduced a bug |
+
+---
+
 ## ☁️ Step 5: Connecting to GitHub
 
 ### To Upload a New Local Project:
 
 1. **Navigate to your project:**
+
 ```bash
 cd ~/Documents/your-project-folder
-
 ```
 
-
 2. **Initialize & Save locally:**
+
 ```bash
 git init
 git add .
 git commit -m "initial commit"
 git status
-
 ```
-
 
 > 💡 **Why run status here?** If it says *"nothing to commit, working tree clean"*, it means your "Snapshot" was successful. You are now ready to send it to the cloud!
 
+3. **Link and Push:** (Copy the **SSH link** from your new GitHub repo page). On GitHub, click on the plus icon, top right side. Then click on the new repository. This will take you through to a separate page. Name your repository. I find it best practice to keep it the same name as the folder that you're pushing. Then click the create. And this will take you through to a separate page where it will display the origin SSH link. Click on the SSH link, copy that and follow the next steps.
 
-3. **Link and Push:** (Copy the **SSH link** from your new GitHub repo page). On GitHub, click on the plus icon, top right side. Then click on the new repository. This will take you through to a separate page. Name your repository. I find it best practice to keep it the same name as the folder that you're pushing. Then click the create. And this will take you through to a separate page where it will display the origin SSH link. Click on the SSH link, copy that and follow the next steps. 
 ```bash
 # Connect local to remote (Replace with your actual SSH link)
 git remote add origin git@github.com:Username/RepositoryName.git
 
 # Push to GitHub for the first time
 git push -u origin main
-
 ```
-
-
 
 ---
 
@@ -135,11 +177,10 @@ If you hate typing three commands every time, you can create a shortcut (alias).
 
 1. Run: `nano ~/.bashrc`
 2. Scroll to the bottom and paste:
+
 ```bash
 alias gsave='git add . && git commit -m "update" && git push'
-
 ```
-
 
 3. Save (**Ctrl+O, Enter**) and Exit (**Ctrl+X**).
 4. Refresh your terminal: `source ~/.bashrc`
@@ -147,9 +188,6 @@ alias gsave='git add . && git commit -m "update" && git push'
 **Now, you can just type `gsave` to stage, commit, and push everything at once!**
 
 ---
-
 ## Disclaimer
 
 This project is provided "as-is" without any warranty of any kind. I am not responsible for any issues, data loss, or "explosions" (code-related or otherwise) that may occur from using this software. **Use it at your own risk.**
-
-
