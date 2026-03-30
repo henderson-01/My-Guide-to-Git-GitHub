@@ -8,17 +8,17 @@ Before we start, let's make sure your computer is ready and your email is hidden
 
 1. **Check if Git is installed:** Open your terminal (**Ctrl+Alt+T**) and type:
 
-```bash 
+```bash
 git --version 
 ```
 
 If it shows a version number, you're good! If not, run: `sudo apt update && sudo apt install git -y`
 
-2. **Hide your Email on GitHub:** * Go to **Settings** → **Emails**.
+1. **Hide your Email on GitHub:** * Go to **Settings** → **Emails**.
 
 * Check **"Keep my email addresses private"** and **"Block command line pushes that expose my email."**
 
-3. **Copy your "Noreply" Email:** GitHub will show a specific address in that menu, like `12345678+username@users.noreply.github.com`. **Save this for Step 2.**
+1. **Copy your "Noreply" Email:** GitHub will show a specific address in that menu, like `12345678+username@users.noreply.github.com`. **Save this for Step 2.**
 
 ---
 
@@ -50,9 +50,9 @@ This lets Ubuntu talk to GitHub securely without you typing a password every tim
 ssh-keygen -t ed25519 -C "your-noreply-email@users.noreply.github.com"
 ```
 
-2. **The "Enter" Trick:** When it asks for a file location or passphrase, **press ENTER for all three prompts** 
+1. **The "Enter" Trick:** When it asks for a file location or passphrase, **press ENTER for all three prompts**
 (leave them blank).
-3. **Copy the key to your clipboard:**
+2. **Copy the key to your clipboard:**
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
@@ -140,7 +140,7 @@ The commands you’ll use in your project folder every day:
 
 ## ☁️ Step 5: Connecting to GitHub
 
-### To Upload a New Local Project:
+### To Upload a New Local Project
 
 1. **Navigate to your project:**
 
@@ -148,7 +148,7 @@ The commands you’ll use in your project folder every day:
 cd ~/Documents/your-project-folder
 ```
 
-2. **Initialize & Save locally:**
+1. **Initialize & Save locally:**
 
 ```bash
 git init
@@ -159,7 +159,7 @@ git status
 
 > 💡 **Why run status here?** If it says *"nothing to commit, working tree clean"*, it means your "Snapshot" was successful. You are now ready to send it to the cloud!
 
-3. **Link and Push:** (Copy the **SSH link** from your new GitHub repo page). On GitHub, click on the plus icon, top right side. Then click on the new repository. This will take you through to a separate page. Name your repository. I find it best practice to keep it the same name as the folder that you're pushing. Then click the create. And this will take you through to a separate page where it will display the origin SSH link. Click on the SSH link, copy that and follow the next steps.
+1. **Link and Push:** (Copy the **SSH link** from your new GitHub repo page). On GitHub, click on the plus icon, top right side. Then click on the new repository. This will take you through to a separate page. Name your repository. I find it best practice to keep it the same name as the folder that you're pushing. Then click the create. And this will take you through to a separate page where it will display the origin SSH link. Click on the SSH link, copy that and follow the next steps.
 
 ```bash
 # Connect local to remote (Replace with your actual SSH link)
@@ -182,12 +182,13 @@ If you hate typing three commands every time, you can create a shortcut (alias).
 alias gsave='git add . && git commit -m "update" && git push'
 ```
 
-3. Save (**Ctrl+O, Enter**) and Exit (**Ctrl+X**).
-4. Refresh your terminal: `source ~/.bashrc`
+1. Save (**Ctrl+O, Enter**) and Exit (**Ctrl+X**).
+2. Refresh your terminal: `source ~/.bashrc`
 
 **Now, you can just type `gsave` to stage, commit, and push everything at once!**
 
 ---
+
 ## ⚠️ Disclaimer
 
-This is provided "as is" without warranty of any kind. I am not responsible for any damage, data loss, or issues caused by the use of this Information. **Use it at your own risk.** 
+This is provided "as is" without warranty of any kind. I am not responsible for any damage, data loss, or issues caused by the use of this Information. **Use it at your own risk.**
