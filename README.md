@@ -6,7 +6,7 @@ This guide ensures you can use Git on your Ubuntu desktop without password promp
 
 Before we start, let's make sure your computer is ready and your email is hidden.
 
-1. **Check if Git is installed:** Open your terminal (**Ctrl+Alt+T**) and type:
+**Check if Git is installed:** Open your terminal (**Ctrl+Alt+T**) and type:
 
 ```bash
 git --version 
@@ -14,11 +14,11 @@ git --version
 
 If it shows a version number, you're good! If not, run: `sudo apt update && sudo apt install git -y`
 
-1. **Hide your Email on GitHub:** * Go to **Settings** → **Emails**.
+* **Hide your Email on GitHub:** * Go to **Settings** → **Emails**.
 
 * Check **"Keep my email addresses private"** and **"Block command line pushes that expose my email."**
 
-1. **Copy your "Noreply" Email:** GitHub will show a specific address in that menu, like `12345678+username@users.noreply.github.com`. **Save this for Step 2.**
+* **Copy your "Noreply" Email:** GitHub will show a specific address in that menu, like `12345678+username@users.noreply.github.com`. **Save this for Step 2.**
 
 ---
 
@@ -44,23 +44,23 @@ git config --global init.defaultBranch main
 
 This lets Ubuntu talk to GitHub securely without you typing a password every time.
 
-1. **Generate the key:**
+**Generate the key:**
 
 ```bash
 ssh-keygen -t ed25519 -C "your-noreply-email@users.noreply.github.com"
 ```
 
-1. **The "Enter" Trick:** When it asks for a file location or passphrase, **press ENTER for all three prompts**
+* **The "Enter" Trick:** When it asks for a file location or passphrase, **press ENTER for all three prompts**
 (leave them blank).
-2. **Copy the key to your clipboard:**
+* **Copy the key to your clipboard:**
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
 *Highlight the output starting with `ssh-ed25519` and copy it.*
-4. **Add to GitHub:** Go to **Settings** → **SSH and GPG keys** → **New SSH Key**. Give it a title (e.g., "Ubuntu Desktop") and paste the key.
-5. **The Critical Test:**
+ & **Add to GitHub:** Go to **Settings** → **SSH and GPG keys** → **New SSH Key**. Give it a title (e.g., "Ubuntu Desktop") and paste the key.
+& **The Critical Test:**
 
 ```bash
 ssh -T git@github.com
@@ -89,7 +89,7 @@ The commands you’ll use in your project folder every day:
 
 ## 📑 Quick Reference Cheatsheet
 
-> 💡 **How to read this:** When you see `<text>` (like `<branch-name>`), do **not** type the brackets. Replace the whole thing with your actual name (e.g., `git checkout main`).
+> 💡 **How to read this:** When you see `<text>` (like `<branch-name>`), do **not** type the brackets. Replace the whole thing with your actual name (e.g., `git checkout main`)
 
 ### 🏗️ Getting Started & Remotes
 
@@ -142,13 +142,13 @@ The commands you’ll use in your project folder every day:
 
 ### To Upload a New Local Project
 
-1. **Navigate to your project:**
+**Navigate to your project:**
 
 ```bash
 cd ~/Documents/your-project-folder
 ```
 
-1. **Initialize & Save locally:**
+**Initialize & Save locally:**
 
 ```bash
 git init
@@ -157,9 +157,10 @@ git commit -m "initial commit"
 git status
 ```
 
-> 💡 **Why run status here?** If it says *"nothing to commit, working tree clean"*, it means your "Snapshot" was successful. You are now ready to send it to the cloud!
+💡 **Why run status here?** If it says *"nothing to commit, working tree clean"*, it means your "Snapshot" was successful. You are now ready to send it to the cloud!
 
-1. **Link and Push:** (Copy the **SSH link** from your new GitHub repo page). On GitHub, click on the plus icon, top right side. Then click on the new repository. This will take you through to a separate page. Name your repository. I find it best practice to keep it the same name as the folder that you're pushing. Then click the create. And this will take you through to a separate page where it will display the origin SSH link. Click on the SSH link, copy that and follow the next steps.
+> [!TIP]
+> **Link and Push:** (Copy the **SSH link** from your new GitHub repo page). On GitHub, click on the plus icon, top right side. Then click on the new repository. This will take you through to a separate page. Name your repository. I find it best practice to keep it the same name as the folder that you're pushing. Then click the create. And this will take you through to a separate page where it will display the origin SSH link. Click on the SSH link, copy that and follow the next steps.
 
 ```bash
 # Connect local to remote (Replace with your actual SSH link)
@@ -175,15 +176,15 @@ git push -u origin main
 
 If you hate typing three commands every time, you can create a shortcut (alias).
 
-1. Run: `nano ~/.bashrc`
-2. Scroll to the bottom and paste:
+* Run: `nano ~/.bashrc`
+* Scroll to the bottom and paste:
 
 ```bash
 alias gsave='git add . && git commit -m "update" && git push'
 ```
 
-1. Save (**Ctrl+O, Enter**) and Exit (**Ctrl+X**).
-2. Refresh your terminal: `source ~/.bashrc`
+* Save (**Ctrl+O, Enter**) and Exit (**Ctrl+X**).
+* Refresh your terminal: `source ~/.bashrc`
 
 **Now, you can just type `gsave` to stage, commit, and push everything at once!**
 
