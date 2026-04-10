@@ -14,11 +14,11 @@ git --version
 
 If it shows a version number, you're good! If not, run: `sudo apt update && sudo apt install git -y`
 
-* **Hide your Email on GitHub:** * Go to **Settings** → **Emails**.
+- **Hide your Email on GitHub:** * Go to **Settings** → **Emails**.
 
-* Check **"Keep my email addresses private"** and **"Block command line pushes that expose my email."**
+- Check **"Keep my email addresses private"** and **"Block command line pushes that expose my email."**
 
-* **Copy your "Noreply" Email:** GitHub will show a specific address in that menu, like `12345678+username@users.noreply.github.com`. **Save this for Step 2.**
+- **Copy your "Noreply" Email:** GitHub will show a specific address in that menu, like `12345678+username@users.noreply.github.com`. **Save this for Step 2.**
 
 ---
 
@@ -50,9 +50,9 @@ This lets Ubuntu talk to GitHub securely without you typing a password every tim
 ssh-keygen -t ed25519 -C "your-noreply-email@users.noreply.github.com"
 ```
 
-* **The "Enter" Trick:** When it asks for a file location or passphrase, **press ENTER for all three prompts**
+- **The "Enter" Trick:** When it asks for a file location or passphrase, **press ENTER for all three prompts**
 (leave them blank).
-* **Copy the key to your clipboard:**
+- **Copy the key to your clipboard:**
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
@@ -60,7 +60,8 @@ cat ~/.ssh/id_ed25519.pub
 
 *Highlight the output starting with `ssh-ed25519` and copy it.*
  & **Add to GitHub:** Go to **Settings** → **SSH and GPG keys** → **New SSH Key**. Give it a title (e.g., "Ubuntu Desktop") and paste the key.
-& **The Critical Test:**
+
+**The Critical Test:**
 
 ```bash
 ssh -T git@github.com
@@ -89,7 +90,8 @@ The commands you’ll use in your project folder every day:
 
 ## 📑 Quick Reference Cheatsheet
 
-> 💡 **How to read this:** When you see `<text>` (like `<branch-name>`), do **not** type the brackets. Replace the whole thing with your actual name (e.g., `git checkout main`)
+>[!NOTE]
+> 💡 **How to read this:** When you see `<text>` (like `<branch-name>`), do > **not** type the brackets. Replace the whole thing with your actual name (e.g., `git checkout main`)
 
 ### 🏗️ Getting Started & Remotes
 
@@ -176,15 +178,15 @@ git push -u origin main
 
 If you hate typing three commands every time, you can create a shortcut (alias).
 
-* Run: `nano ~/.bashrc`
-* Scroll to the bottom and paste:
+- Run: `nano ~/.bashrc`
+- Scroll to the bottom and paste:
 
 ```bash
 alias gsave='git add . && git commit -m "update" && git push'
 ```
 
-* Save (**Ctrl+O, Enter**) and Exit (**Ctrl+X**).
-* Refresh your terminal: `source ~/.bashrc`
+- Save (**Ctrl+O, Enter**) and Exit (**Ctrl+X**).
+- Refresh your terminal: `source ~/.bashrc`
 
 **Now, you can just type `gsave` to stage, commit, and push everything at once!**
 
