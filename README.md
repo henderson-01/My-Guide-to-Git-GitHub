@@ -1,4 +1,4 @@
-# 🚀 My No-Stress Guide to Git & GitHub (Ubuntu Edition)
+# 🚀 My Guide to Git & GitHub (Ubuntu Edition)
 
 This guide ensures you can use Git on your Ubuntu desktop without password prompts, privacy leaks, or terminal headaches.
 
