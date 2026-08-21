@@ -1,3 +1,5 @@
+*Notice: This repository is no longer actively maintained and may contain outdated information.*
+
 # 🚀 My Guide to Git & GitHub (Ubuntu Edition)
 
 This guide ensures you can use Git on your Ubuntu desktop without password prompts, privacy leaks, or terminal headaches.
